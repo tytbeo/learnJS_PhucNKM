@@ -1,0 +1,10 @@
+
+
+function isIPv4Address(inputString = ""){
+    let arr = inputString.split(".");
+    if(arr.length != 4 ) return false;
+    for( let x of arr){
+        if( x == "" || x.match(/\D/)  || +x < 0 || +x > 255 ) return false;
+    }
+    return true;
+}
