@@ -1,0 +1,23 @@
+The electric bill is calculated according to the following rules:
+
+Subscription fee galvanometer: $1000 / month
+The first 50KW: $230/KW
+The next 50KW: $480/KW
+The next 49 KW: $700/KW
+The next KWs: $900/KW.
+Given n KW you used in a month. Calculate the total amount of money you have to pay.
+
+function calculateElectricBill(n){
+    let arrPrice = [ [50,230],[50,480],[49,700],[10e8,900] ];
+    let total = 1000;
+    for( let price of arrPrice ){
+        if( n > price[0] ){
+            n -= price[0];
+            total += price[0]*price[1];
+        }else{
+            total += n * price[1];
+            break;
+        }
+    }
+    return total;
+}
