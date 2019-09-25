@@ -1,0 +1,15 @@
+Give a string s with length n contain only 1 and 0. Consider the following operation: choose any two adjacent positions in the string, and if one them contains 1, and the other contains 0, then remove these two digits from the string, obtaining a string of length n - 2 as a result. And what is the minimum length of the string that can remain after applying the described operation several times?
+
+Example
+
+For s = "101", the output should be onesAndZeros(s) = 1.
+This case possible to change the string like this "101" -> "1" and now length of s is 1.
+
+
+function onesAndZeros(s){
+    while( s.match(/10/) || s.match(/01/) ){
+        s = s.replace(/10/g,"");
+        s = s.replace(/01/g,"");
+    }
+    return s.length;
+}
