@@ -1,0 +1,15 @@
+Given array of integers, check if it represents either a strictly increasing or a strictly decreasing sequence.
+
+function isMonotonous(sequence){
+    let inc = true;
+    if( sequence[0] > sequence[1] ) inc = false;
+    for( let i = 1; i<sequence.length; i++ ){
+        if(sequence[i-1] == sequence[i])return false;
+        if(inc){
+            if(sequence[i-1] > sequence[i])return false;
+        }else{
+            if(sequence[i-1] < sequence[i])return false;
+        }
+    }
+    return true;
+}
