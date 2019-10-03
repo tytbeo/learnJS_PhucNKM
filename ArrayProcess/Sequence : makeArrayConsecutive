@@ -1,0 +1,24 @@
+Given an array of integers, we need to fill in the "holes" such that it contains all the integers from some range.
+
+Example
+
+For sequence = [6, 2, 3, 8], the output should be
+makeArrayConsecutive(sequence) = [4, 5, 7].
+
+
+function makeArrayConsecutive(arr){
+    arr = arr.sort((a,b)=>a-b);
+    let rs = [];
+    for(let i = 0;i<arr.length-1;i++){
+        if( arr[i] + 1 < arr[i+1]  ){
+            let start = arr[i]+1,end = arr[i+1];
+            while( start < end  ){
+                rs.push(start);
+                start++;
+            }
+        }else{
+            continue;
+        }
+    }
+    return rs;
+}
