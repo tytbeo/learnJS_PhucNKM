@@ -1,0 +1,15 @@
+A boomerang is a V-shaped sequence that is either upright or upside down. Specifically, a boomerang can be defined as: sub-array of length 3 with the first and last digits are the same and a different middle digit.
+
+Some boomerang examples: [3, 7, 3], [1, -1, 1], [5, 6, 5]. 
+[5, 5, 5] (triple identical digits) is NOT considered a boomerang because the middle digit is identical to the first and last.
+
+Create a function that returns the total number of boomerangs in an array.
+
+
+function boomerang(arr){
+    let countBoomerang = 0;
+    for(let i = 0;i < arr.length-2; i++){
+        if( arr[i] == arr[i+2] && arr[i] != arr[i+1] )countBoomerang ++;
+    }
+    return countBoomerang;
+}
