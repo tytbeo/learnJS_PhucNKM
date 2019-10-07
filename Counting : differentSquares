@@ -1,0 +1,30 @@
+Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+
+Example
+
+For matrix = [[1, 2, 1],
+[2, 2, 2],
+[2, 2, 2],
+[1, 2, 3],
+[2, 2, 1]] the output should be differentSquares(matrix) = 6.
+
+
+
+
+function differentSquares(matrix = []){
+    let  row = matrix.length ;
+    let  col = matrix[0].length;
+
+    let squares2x2 = [];
+
+    for(let i = 0; i < row-1 ; i++){
+        for(let j = 0; j < col-1; j++){
+            let square = "" + matrix[i][j] + matrix[i][j+1] + matrix[i+1][j+1] + matrix[i+1][j] ;
+            squares2x2.push( square );
+        }
+    }
+    let unique = [...new Set(squares2x2)];
+
+    return unique.length;
+
+}
