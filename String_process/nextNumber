@@ -1,0 +1,30 @@
+You're given a number N. Find the smallest number greater than N which has the same number of active bits in it (i.e. the same number of 1s in its binary representation).
+
+Examples:
+
+For N = 1 the output should be nextNumber(N) = 2.
+
+Both 1 and 2 have 1 active bit.
+
+For N = 3 the output should be nextNumber(N) = 5.
+
+Both 3 and 5 have 2 active bits.
+
+
+
+function nextNumber(n){
+    let binaryS = "0" + n.toString(2);
+    binaryS = binaryS.split("");
+    for (let i = binaryS.length-1; i >= 0 ; i--) {
+        if( binaryS[i] == "1" && binaryS[i-1] == "0" ){
+            binaryS[i] = "0";
+            binaryS[i-1] = "1";
+            let x = binaryS.splice(i+1);
+            x.sort((a,b)=>a-b);
+            binaryS.push(...x);
+            break;
+        }
+    }
+    binaryS = binaryS.join("");
+    return parseInt( binaryS , 2);
+}
