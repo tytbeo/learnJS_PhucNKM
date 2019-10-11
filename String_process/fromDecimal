@@ -1,0 +1,10 @@
+Transform a number n into the given base base.
+
+Example
+
+For b = 2 and n = 13, the output should be fromDecimal(base, n) = "1101".
+
+
+function fromDecimal(b, n){
+    return n.toString(b);
+}
