@@ -1,0 +1,13 @@
+Write a program that, given a date in 2009, determines the day of week on that date.
+
+Example
+
+For D = 1 , M = 1, the output should be Date(D, M) = "Thursday"
+For D = 17, M = 1, the output should be Date(D, M) = "Saturday"
+
+
+function date(d, m){
+    let day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let x = new Date(2009,m-1,d);
+    return day[x.getDay()];
+}
