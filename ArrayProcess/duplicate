@@ -1,0 +1,30 @@
+Your will be an array of integers, your task is to check if the array contains duplicate elements.
+
+Example
+
+For arr = [0,1,2] the output should be duplicate(arr) = false. 
+
+For arr = [1,4,1] the output should be duplicate(arr) = true. 
+(The array contains two ones)
+
+Input / Output
+
+[execution time limit] 1 seconds 
+
+[input] array.integers arr
+
+Guaranteed constraints:
+1 ≤ arr.length ≤ 10^6
+
+[output] boolean
+
+Return true if the array contains duplicate elements, and false otherwise.
+
+
+
+function duplicate(arr=[]){
+    for( let i = 0; i < arr.length; i++ ){
+        if(arr.indexOf(arr[i]) != i)return true;
+    }
+    return false;
+}
